@@ -1,27 +1,27 @@
 /*
  * ExpanderDemoViewController.h
  * Classes
- * 
+ *
  * Created by Jim Dovey on 16/8/2010.
- * 
+ *
  * Copyright (c) 2010 Jim Dovey
  * All rights reserved.
- * 
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
  * are met:
- * 
+ *
  * Redistributions of source code must retain the above copyright notice,
  * this list of conditions and the following disclaimer.
- * 
+ *
  * Redistributions in binary form must reproduce the above copyright
  * notice, this list of conditions and the following disclaimer in the
  * documentation and/or other materials provided with the distribution.
- * 
+ *
  * Neither the name of the project's author nor the names of its
  * contributors may be used to endorse or promote products derived from
  * this software without specific prior written permission.
- * 
+ *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
  * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
@@ -60,14 +60,14 @@
 - (AQGridViewCell *) gridView: (AQGridView *) gridView cellForItemAtIndex: (NSUInteger) index
 {
 	static NSString * ExpanderCellIdentifier = @"ExpanderCellIdentifier";
-	
+
 	ExpandFromGridViewCell * cell = (ExpandFromGridViewCell *)[self.gridView dequeueReusableCellWithIdentifier: ExpanderCellIdentifier];
 	if ( cell == nil )
 	{
 		cell = [[[ExpandFromGridViewCell alloc] initWithFrame: CGRectMake(0.0, 0.0, 200.0, 150.0) reuseIdentifier: ExpanderCellIdentifier] autorelease];
 		cell.selectionGlowColor = [UIColor purpleColor];
 	}
-	
+
 	cell.image = [UIImage imageNamed: @"Dragon.png"];
 	return ( cell );
 }
@@ -84,10 +84,10 @@
 {
 	ExpandFromGridViewCell * cell = (ExpandFromGridViewCell *)[self.gridView cellForItemAtIndex: index];
 	CGRect expandFromRect = [cell rectForExpansionStart];
-	
+
 	ExpandingGridViewController * controller = [[ExpandingGridViewController alloc] init];
 	controller.gridView.frame = self.gridView.frame;
-	
+
 	[controller viewWillAppear: NO];
 	[self.view.superview addSubview: controller.gridView];
 	[controller expandCellsFromRect: expandFromRect ofView: cell];

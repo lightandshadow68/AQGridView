@@ -1,25 +1,25 @@
 /*
  * AQGridView.h
  * AQGridView
- * 
+ *
  * Created by Jim Dovey on 10/2/2010.
  * Copyright 2010 Kobo Inc. All rights reserved.
- * 
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
  * are met:
- * 
+ *
  * Redistributions of source code must retain the above copyright notice,
  * this list of conditions and the following disclaimer.
- * 
+ *
  * Redistributions in binary form must reproduce the above copyright
  * notice, this list of conditions and the following disclaimer in the
  * documentation and/or other materials provided with the distribution.
- * 
+ *
  * Neither the name of the project's author nor the names of its
  * contributors may be used to endorse or promote products derived from
  * this software without specific prior written permission.
- * 
+ *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
  * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
@@ -95,38 +95,38 @@ extern NSString * const AQGridViewSelectionDidChangeNotification;
 @interface AQGridView : UIScrollView
 {
 	id<AQGridViewDataSource>		_dataSource;
-	
+
 	AQGridViewData *				_gridData;
 	NSMutableArray *				_updateInfoStack;
 	NSInteger						_animationCount;
-	
+
 	CGRect							_visibleBounds;
 	NSRange							_visibleIndices;
 	NSMutableArray *				_visibleCells;
 	NSMutableDictionary *			_reusableGridCells;
-	
+
 	NSSet *							_animatingCells;
 	NSIndexSet *					_animatingIndices;
-	
+
 	NSMutableIndexSet *				_highlightedIndices;
 	UIView *						_touchedContentView;		// weak reference
-	
+
 	UIView *						_backgroundView;
 	UIColor *						_separatorColor;
-	
+
 	NSInteger						_reloadingSuspendedCount;
 	NSInteger						_displaySuspendedCount;
-	
+
 	NSInteger						_updateCount;
-	
+
 	NSUInteger						_selectedIndex;
 	NSUInteger						_pendingSelectionIndex;
-	
+
 	CGPoint							_touchBeganPosition;
-	
+
 	UIView *						_headerView;
 	UIView *						_footerView;
-  
+
 	struct
 	{
 		unsigned	resizesCellWidths:1;
@@ -145,7 +145,7 @@ extern NSString * const AQGridViewSelectionDidChangeNotification;
 		unsigned	isAnimatingUpdates:1;	// unused, see _animationCount instead
 		unsigned	requiresSelection:1;
 		unsigned	contentSizeFillsBounds:1;
-		
+
 		unsigned	delegateWillDisplayCell:1;
 		unsigned	delegateWillSelectItem:1;
     unsigned  delegateWillSelectItemMultiTouch:1;
@@ -155,11 +155,11 @@ extern NSString * const AQGridViewSelectionDidChangeNotification;
 		unsigned	delegateDidDeselectItem:1;
 		unsigned	delegateGestureRecognizerActivated:1;
 		unsigned	delegateAdjustGridCellFrame:1;
-		
+
 		unsigned	dataSourceGridCellSize:1;
-		
+
         unsigned int isEditing:1;
-		
+
 		unsigned	__RESERVED__:1;
 	} _flags;
 }

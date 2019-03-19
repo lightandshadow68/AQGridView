@@ -35,7 +35,7 @@
 {
 	if ( [o isKindOfClass: [self class]] == NO )
 		return ( NO );
-	
+
 	return ( o.index == self.index );
 }
 
@@ -49,13 +49,13 @@
 			return ( NSOrderedDescending );
 		return ( NSOrderedSame );			// how ??!?!?
 	}
-	
+
 	AQGridViewAnimatorItem * item = (AQGridViewAnimatorItem *) obj;
 	if ( self.index < item.index )
 		return ( NSOrderedAscending );
 	if ( self.index > item.index )
 		return ( NSOrderedDescending );
-	
+
 	return ( NSOrderedSame );
 }
 
